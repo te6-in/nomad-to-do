@@ -2,7 +2,7 @@ import { atom, selector } from "recoil";
 
 export const isLightState = atom<boolean>({
 	key: "isLightState",
-	default: true,
+	default: JSON.parse(localStorage.getItem("isLight") ?? JSON.stringify(true)),
 });
 
 export let defaultCategories: string[] = ["해야 함", "하는 중", "끝"];

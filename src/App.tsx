@@ -3,6 +3,7 @@ import { lightTheme, darkTheme } from "./theme";
 import ToDoList from "./components/ToDoList";
 import { useRecoilValue } from "recoil";
 import { isLightState } from "./atoms";
+import { useEffect } from "react";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -66,6 +67,10 @@ input, button {
 
 function App() {
 	const isLight = useRecoilValue(isLightState);
+
+	useEffect(() => {
+		localStorage.setItem("isLight", JSON.stringify(isLight));
+	}, [isLight]);
 
 	return (
 		<>
